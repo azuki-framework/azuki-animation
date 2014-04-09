@@ -85,7 +85,7 @@ public class MoveAnimationObject extends AnimationObject {
 	@Override
 	protected void doRender(final Graphics g) {
 		g.setColor(Color.red);
-		g.fillRect((int) getX(), (int) getY(), 20, 20);
+		g.fillOval((int) getX(), (int) getY(), 20, 20);
 	}
 	
 	public boolean isMove() {

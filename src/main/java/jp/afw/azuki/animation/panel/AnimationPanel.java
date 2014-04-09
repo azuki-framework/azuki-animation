@@ -90,8 +90,18 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 		}
 		doRender(graphics);
 
+		
+		double p = fpsReal / fps;
+		if (1 < p) {
+			p = 1.f;
+		} else if (0.5 > p) {
+			p = 0.f;
+		} else {
+			p = (p - 0.5f) * 2;
+		}
+		
 		graphics.setFont(new Font("Dialog", Font.PLAIN, 16));
-		graphics.setColor(Color.green);
+		graphics.setColor(new Color((int)(255.f*(1.f-p)), (int)(255.f*p), 0));
 		graphics.drawString(String.format("FPS %2.3f", fpsReal), 0, 16);
 	}
 
