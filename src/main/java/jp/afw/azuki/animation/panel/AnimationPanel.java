@@ -88,8 +88,11 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 				graphics = bufferImage.getGraphics();
 			}
 		}
-		doRender(graphics);
+		
+		graphics.setColor(Color.white);
+		graphics.fillRect(0, 0, 800, 600);
 
+		doRender(graphics);
 		
 		double p = fpsReal / fps;
 		if (1 < p) {
@@ -110,9 +113,11 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 	 */
 	private void paintScreen() {
 		try {
-			Graphics g = getGraphics();
+			Graphics g = getGraphics();			
 			if ((g != null) && (bufferImage != null)) {
-				g.drawImage(bufferImage, 0, 0, null);
+				// XXX: メニューが消される				
+				//g.drawImage(bufferImage, 0, 0, null);
+				repaint();
 			}
 			Toolkit.getDefaultToolkit().sync();
 			if (g != null) {
@@ -121,5 +126,11 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public void paint(Graphics g) {
+		if ((g != null) && (bufferImage != null)) {
+			g.drawImage(bufferImage, 0, 0, null);
+		}		
 	}
 }

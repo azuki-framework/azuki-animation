@@ -18,11 +18,26 @@ public class MoveAnimationObject extends AnimationObject {
 	 * @param aIntervalX 移動量(pixel/sec)
 	 * @param aIntervalY 移動量(pixel/sec)
 	 */
-	public void move(final double aX, final double aY, final double aIntervalX, final double aIntervalY) {
+	public void moveWithInterval(final double aX, final double aY, final double aIntervalX, final double aIntervalY) {
 		moveX = aX;
 		moveY = aY;
 		intervalX = aIntervalX;
 		intervalY = aIntervalY;
+	}
+
+	/**
+	 * オブジェクトを移動する。
+	 * 
+	 * @param aX 移動先X座標
+	 * @param aY 移動先Y座標
+	 * @param aTime 移動時間(s)
+	 */
+	public void moveWithTime(final double aX, final double aY, final double aTime) {
+		moveX = aX;
+		moveY = aY;
+
+		intervalX = Math.abs((aX - getX()) / aTime);
+		intervalY = Math.abs((aY - getY()) / aTime);
 	}
 
 	public double getMoveX() {
@@ -87,7 +102,7 @@ public class MoveAnimationObject extends AnimationObject {
 		g.setColor(Color.red);
 		g.fillOval((int) getX(), (int) getY(), 20, 20);
 	}
-	
+
 	public boolean isMove() {
 		return !(0 == intervalX && 0 == intervalY);
 	}

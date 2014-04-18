@@ -3,6 +3,7 @@ package jp.afw.azuki.animation.panel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,9 +17,9 @@ public class TestAnimationPanel extends AnimationPanel {
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -5466355959065165202L;
-	
+
 	private List<MoveAnimationObject> as;
-	
+
 	private List<Double> line;
 
 	public TestAnimationPanel() {
@@ -31,9 +32,9 @@ public class TestAnimationPanel extends AnimationPanel {
 			a.setPosition(rnd.nextInt(800 - 20), rnd.nextInt(600 - 20));
 			as.add(a);
 		}
-		
+
 		line = new ArrayList<Double>();
-		for (int i = 0 ; i < 100 ; i++) {
+		for (int i = 0; i < 100; i++) {
 			Double value = Double.valueOf(rnd.nextInt(400));
 			line.add(value);
 		}
@@ -46,37 +47,35 @@ public class TestAnimationPanel extends AnimationPanel {
 			a.update(fps);
 
 			if (!a.isMove()) {
-				a.move(rnd.nextInt(800 - 20), rnd.nextInt(600 - 20), rnd.nextInt(100) + 50, rnd.nextInt(150) + 10);
+				a.moveWithInterval(rnd.nextInt(800 - 20), rnd.nextInt(600 - 20), rnd.nextInt(100) + 50, rnd.nextInt(150) + 10);
 			}
 		}
 	}
 
 	@Override
 	protected void doRender(final Graphics g) {
-		Graphics2D g2 = (Graphics2D)g;
-		
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
 		// System.out.println(getWidth());
 		g2.setColor(Color.white);
 		g2.fillRect(0, 0, getWidth(), getHeight());
-		
-		
-		int[] xs = new int[line.size()+2];		
-		int[] ys = new int[line.size()+2];
+
+		int[] xs = new int[line.size() + 2];
+		int[] ys = new int[line.size() + 2];
 		xs[0] = 0;
 		ys[0] = 600;
-		for (int i = 0 ; i < line.size() ; i++) {
+		for (int i = 0; i < line.size(); i++) {
 			double v = line.get(i);
-			xs[i+1] = i * 8;
-			ys[i+1] = (int)(600 - v);
+			xs[i + 1] = i * 8;
+			ys[i + 1] = (int) (600 - v);
 		}
-		xs[line.size()+1] = (line.size()-1) * 8;
-		ys[line.size()+1] = 600;
-		
+		xs[line.size() + 1] = (line.size() - 1) * 8;
+		ys[line.size() + 1] = 600;
 
 		g2.setColor(Color.black);
-		g2.drawPolygon(xs, ys, line.size()+2);
-		
-		
+		g2.drawPolygon(xs, ys, line.size() + 2);
+
 		for (MoveAnimationObject a : as) {
 			a.render(g);
 		}
