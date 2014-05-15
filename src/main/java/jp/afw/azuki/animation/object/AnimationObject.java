@@ -4,22 +4,6 @@ import java.awt.Graphics;
 
 public abstract class AnimationObject {
 
-	private double x;
-	private double y;
-
-	public final void setPosition(final double aX, final double aY) {
-		x = aX;
-		y = aY;
-	}
-
-	public final double getX() {
-		return x;
-	}
-	
-	public final double getY() {
-		return y;
-	}
-
 	public void update(final double fps) {
 		doUpdate(fps);
 	}
