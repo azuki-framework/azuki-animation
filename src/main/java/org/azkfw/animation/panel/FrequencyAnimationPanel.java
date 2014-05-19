@@ -1,4 +1,4 @@
-package jp.afw.azuki.animation.panel;
+package org.azkfw.animation.panel;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -11,8 +11,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import jp.afw.azuki.animation.entity.ChannelGain;
-import jp.afw.azuki.animation.entity.SubCarrier;
+import org.azkfw.animation.entity.ChannelGain;
+import org.azkfw.animation.entity.SubCarrier;
 
 public class FrequencyAnimationPanel extends AnimationPanel {
 

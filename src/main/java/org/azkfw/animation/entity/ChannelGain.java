@@ -1,8 +1,8 @@
-package jp.afw.azuki.animation.entity;
+package org.azkfw.animation.entity;
 
 import java.awt.Graphics;
 
-import jp.afw.azuki.animation.object.AnimationObject;
+import org.azkfw.animation.object.AnimationObject;
 
 /**
  * このクラスは、チャネルゲイン情報を保持するクラスです。

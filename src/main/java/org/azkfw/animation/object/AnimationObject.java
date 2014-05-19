@@ -1,4 +1,4 @@
-package jp.afw.azuki.animation.object;
+package org.azkfw.animation.object;
 
 import java.awt.Graphics;
 

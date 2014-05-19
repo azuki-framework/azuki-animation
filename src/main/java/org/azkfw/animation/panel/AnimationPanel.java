@@ -1,4 +1,4 @@
-package jp.afw.azuki.animation.panel;
+package org.azkfw.animation.panel;
 
 import java.awt.Color;
 import java.awt.Font;

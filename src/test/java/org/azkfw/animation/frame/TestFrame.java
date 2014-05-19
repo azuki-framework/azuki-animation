@@ -1,4 +1,4 @@
-package jp.afw.azuki.animation.frame;
+package org.azkfw.animation.frame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,9 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import jp.afw.azuki.animation.panel.AnimationPanel;
-import jp.afw.azuki.animation.panel.FrequencyAnimationPanel;
-import jp.afw.azuki.animation.panel.TestAnimationPanel;
+import org.azkfw.animation.panel.FrequencyAnimationPanel;
 
 public class TestFrame extends JFrame implements WindowListener, ActionListener {
 
@@ -51,7 +49,6 @@ public class TestFrame extends JFrame implements WindowListener, ActionListener 
 		int selected = filechooser.showOpenDialog(this);
 		if (selected == JFileChooser.APPROVE_OPTION) {
 			File file = filechooser.getSelectedFile();
-			panel.setFile(file);
 		}
 	}
 

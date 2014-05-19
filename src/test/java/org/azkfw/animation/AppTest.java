@@ -1,6 +1,6 @@
-package jp.afw.azuki.animation;
+package org.azkfw.animation;
 
-import jp.afw.azuki.animation.frame.TestFrame;
+import org.azkfw.animation.frame.TestFrame;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

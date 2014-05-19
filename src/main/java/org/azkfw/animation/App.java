@@ -1,4 +1,4 @@
-package jp.afw.azuki.animation;
+package org.azkfw.animation;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;
