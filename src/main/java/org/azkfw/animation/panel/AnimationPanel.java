@@ -1,3 +1,20 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.azkfw.animation.panel;
 
 import java.awt.Color;
@@ -8,6 +25,13 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
+/**
+ * このクラスは、アニメーション用のパネルクラスです。
+ * 
+ * @since 1.0.0
+ * @version 1.0.0 2014/06/04
+ * @author Kawakicchi
+ */
 public abstract class AnimationPanel extends JPanel implements Runnable {
 
 	/** serialVersionUID */
@@ -88,12 +112,12 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 				graphics = bufferImage.getGraphics();
 			}
 		}
-		
+
 		graphics.setColor(Color.white);
 		graphics.fillRect(0, 0, 800, 600);
 
 		doRender(graphics);
-		
+
 		double p = fpsReal / fps;
 		if (1 < p) {
 			p = 1.f;
@@ -102,9 +126,9 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 		} else {
 			p = (p - 0.5f) * 2;
 		}
-		
+
 		graphics.setFont(new Font("Dialog", Font.PLAIN, 16));
-		graphics.setColor(new Color((int)(255.f*(1.f-p)), (int)(255.f*p), 0));
+		graphics.setColor(new Color((int) (255.f * (1.f - p)), (int) (255.f * p), 0));
 		graphics.drawString(String.format("FPS %2.3f", fpsReal), 0, 16);
 	}
 
@@ -113,7 +137,7 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 	 */
 	private void paintScreen() {
 		try {
-			Graphics g = getGraphics();			
+			Graphics g = getGraphics();
 			if ((g != null) && (bufferImage != null)) {
 				// XXX: メニューが消される				
 				//g.drawImage(bufferImage, 0, 0, null);
@@ -127,10 +151,10 @@ public abstract class AnimationPanel extends JPanel implements Runnable {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void paint(Graphics g) {
 		if ((g != null) && (bufferImage != null)) {
 			g.drawImage(bufferImage, 0, 0, null);
-		}		
+		}
 	}
 }

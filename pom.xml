@@ -18,7 +18,7 @@
 
 	<groupId>org.azkfw</groupId>
 	<artifactId>azuki-animation</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>azuki-animation</name>
@@ -33,7 +33,7 @@
 		<repository>
 			<id>azkfw.org</id>
 			<name>Azuki Framework Temporary Repository</name>
-			<url>file://${project.build.directory}//maven-repository</url>
+			<url>file://${project.build.directory}/../../maven-repository</url>
 		</repository>
 	</distributionManagement>
 	
@@ -53,12 +53,6 @@
 			<groupId>org.azkfw</groupId>
 			<artifactId>azuki-base</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.java.dev.jna</groupId>
-			<artifactId>jna</artifactId>
-			<version>4.1.0</version>
 		</dependency>
 
 		<dependency>
@@ -86,6 +80,9 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
+						<manifest>
+							<mainClass>org.azkfw.animation.AzukiAnimation</mainClass>
+						</manifest>
 						<manifestEntries>
 						    <Built-By>AzukiFramework</Built-By>
 						</manifestEntries>

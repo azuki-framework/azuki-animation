@@ -15,29 +15,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.azkfw.animation.object;
+package org.azkfw.animation;
 
-import java.awt.Graphics;
+import org.azkfw.animation.frame.SampleFrame;
 
 /**
- * このクラスは、アニメーション用のオブジェクトクラスです。
+ * このクラスは、AzukiAnimationクラスです。
  * 
  * @since 1.0.0
  * @version 1.0.0 2014/06/04
  * @author Kawakicchi
  */
-public abstract class AnimationObject {
+public class AzukiAnimation {
 
-	public void update(final double fps) {
-		doUpdate(fps);
+	/**
+	 * メイン関数
+	 * 
+	 * @param args 引数
+	 */
+	public static void main(final String[] args) {
+		SampleFrame frame = new SampleFrame();
+		frame.setVisible(true);
 	}
-
-	public void render(final Graphics g) {
-		doRender(g);
-	}
-
-	protected abstract void doUpdate(final double fps);
-
-	protected abstract void doRender(final Graphics g);
-
 }
